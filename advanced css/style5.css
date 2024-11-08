@@ -1,0 +1,26 @@
+.data{
+    background-color: orange;
+    width: 100px;
+    height: 100px;
+    
+    transition:2s;
+   
+    
+    
+    
+}
+/* .data:hover{
+    transition: 4s;
+   transform: rotate(45deg);
+    
+} */
+.data:hover{
+    transform: translate(100px,200px) skewX(30deg); 
+    transition:4s; 
+  
+     
+    
+   
+    
+
+}

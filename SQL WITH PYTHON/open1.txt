@@ -1,0 +1,217 @@
+1)open MY SQL 8.0 client and enter password
+2)if we close MY SQL 8.0 and again open new one then there will different id compared to before opened ones
+------------------------------------------------------------------------------------------------------------------------
+
+Enter password: *************
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 42
+Server version: 8.0.33 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> SHOW DATABASE;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DATABASE' at line 1
+mysql> SHOW DATABASES;
+
++--------------------+
+| Database           |
++--------------------+
+| employee           |
+| excercise          |
+| football           |
+| herovired          |
+| information_schema |
+| mysql              |
+| performance_schema |
+| rgm                |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+11 rows in set (0.01 sec)
+--------------------------------------------------------------------------------
+--->In VS CODE:
+
+Code for seeing "ID":
+
+connection.py:
+
+import mysql.connector
+mydb=mysql.connector.connect(host="localhost",user="root",password="Preethi@12345")
+# password is different for everyone
+print(mydb.connection_id)
+
+In terminal:
+
+PS C:\Users\preethi\Desktop\SQL WITH PYTHON> python connection.py
+44
+--------------------------------------------------------------------
+create_db.py:
+
+import mysql.connector
+mydb=mysql.connector.connect(host="localhost",user="root",password="Preethi@12345")
+# password is different for everyone
+print(mydb.connection_id)
+cur=mydb.cursor()# cursor is a function
+cur.execute('create database VARUN') #CREATE SOME TEMPORARY MEMORY FOR USING OR CREATING DATABASE, TABLE.
+
+
+terminal:
+
+PS C:\Users\preethi\Desktop\SQL WITH PYTHON> python create_db.py
+45
+
+--->then got to mysql client 8.0 do following:
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| employee           |
+| excercise          |
+| football           |
+| herovired          |
+| information_schema |
+| mysql              |
+| performance_schema |
+| rgm                |
+| sakila             |
+| sys                |
+| varun              |
+| world              |
++--------------------+
+12 rows in set (0.00 sec)
+-----------------------------------------------------------------------------
+CREATE_TABLE.PY:
+
+import mysql.connector
+mydb=mysql.connector.connect(host="localhost",user="root",password="Preethi@12345",database="VARUN")
+cur=mydb.cursor()
+t='create table varun1(emp_id integer(5),emp_name varchar(30),salary integer(10))'
+cur.execute(t)
+
+TERMINAL:
+PS C:\Users\preethi\Desktop\SQL WITH PYTHON> python create_table.py
+PS C:\Users\preethi\Desktop\SQL WITH PYTHON>
+
+--->then got to mysql client 8.0 do following:
+
+mysql> USE VARUN
+Database changed
+mysql> SHOW TABLES
+    -> SHOW TABLES;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SHOW TABLES' at line 2
+mysql> SHOW TABLES;
++-----------------+
+| Tables_in_varun |
++-----------------+
+| varun1          |
++-----------------+
+1 row in set (0.01 sec)
+
+--------------------------------------------------------------
+inser_data.py:
+
+import mysql.connector
+mydb=mysql.connector.connect(host="localhost",user="root",password="Preethi@12345",database="VARUN")
+cur=mydb.cursor()
+ins='insert into varun1(emp_id,emp_name,salary) values(%s,%s,%s)'#%s means can enter any type of values,here s is string.
+a=(100,'preethi',120000)
+cur.execute(ins,a)
+mydb.commit()
+print("data inserted successfully")
+
+terminal:
+
+PS C:\Users\preethi\Desktop\SQL WITH PYTHON> python insert_data.py
+data inserted successfully
+PS C:\Users\preethi\Desktop\SQL WITH PYTHON>
+
+
+mysql> select * from varun1;
++--------+----------+--------+
+| emp_id | emp_name | salary |
++--------+----------+--------+
+|    100 | preethi  | 120000 |
++--------+----------+--------+
+1 row in set (0.00 sec)
+----------------------------------------------------------------
+import mysql.connector
+mydb=mysql.connector.connect(host="localhost",user="root",password="Preethi@12345",database="VARUN")
+cur=mydb.cursor()
+ins='insert into varun1(emp_id,emp_name,salary) values(%s,%s,%s)'#%s means can enter any type of values,here s is string.
+a=[(101,'MADHAV',120000),(102,'RADHA',120000),(103,'PRANEETHA',120000)]
+cur.executemany(ins,a)
+mydb.commit()
+print("data inserted successfully")
+
+
+PS C:\Users\preethi\Desktop\SQL WITH PYTHON> python MULTIPLE_DATA.py
+data inserted successfully
+PS C:\Users\preethi\Desktop\SQL WITH PYTHON>
+
+
+mysql> select * from varun1;
++--------+-----------+--------+
+| emp_id | emp_name  | salary |
++--------+-----------+--------+
+|    100 | preethi   | 120000 |
+|    101 | MADHAV    | 120000 |
+|    102 | RADHA     | 120000 |
+|    103 | PRANEETHA | 120000 |
++--------+-----------+--------+
+4 rows in set (0.00 sec)
+
+---------------------------------------------------
+import mysql.connector
+mydb=mysql.connector.connect(host="localhost",user="root",password="Preethi@12345",database="VARUN")
+cur=mydb.cursor()
+f='select * from varun1'
+cur.execute(f)
+display=cur.fetchall()
+for i in display:
+    print(i)
+
+PS C:\Users\preethi\Desktop\SQL WITH PYTHON> python fetch_data.py
+(100, 'preethi', 120000)
+(101, 'MADHAV', 120000)
+(102, 'RADHA', 120000)
+(103, 'PRANEETHA', 120000)
+
+------------------------------------------------------
+import mysql.connector
+mydb=mysql.connector.connect(host="localhost",user="root",password="Preethi@12345",database="VARUN")
+cur=mydb.cursor()
+s='delete from varun1 where emp_id=100'
+cur.execute(s)
+mydb.commit()
+
+PS C:\Users\preethi\Desktop\SQL WITH PYTHON> python delete.py
+
+----------------------------------------------------------
+import mysql.connector
+mydb=mysql.connector.connect(host="localhost",user="root",password="Preethi@12345",database="VARUN")
+cur=mydb.cursor()
+s='update varun1 set salary=salary+100 where emp_id=101'
+cur.execute(s)
+mydb.commit()
+
+PS C:\Users\preethi\Desktop\SQL WITH PYTHON> python update.py
+
+
+mysql> select * from varun1;
++--------+-----------+--------+
+| emp_id | emp_name  | salary |
++--------+-----------+--------+
+|    101 | MADHAV    | 120100 |
+|    102 | RADHA     | 120000 |
+|    103 | PRANEETHA | 120000 |
++--------+-----------+--------+
+
+----------------------------------------------------------

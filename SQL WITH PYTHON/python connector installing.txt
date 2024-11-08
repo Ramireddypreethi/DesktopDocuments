@@ -1,0 +1,17 @@
+1)click on add
+2)my sql connector-->8.01.31-->next-->execute-->execute--<even though it fails in MYSQL  workbench then go for google and do below steps
+                    |
+1)goto sql python connector download
+2)click on download based on our laptop either 64 or 32 bit
+3)once downlaod-->click on all next and then install
+
+1)source force
+
+
+Q1) Query the Name of any student in STUDENTS who scored higher than  Marks. Order your output by the last three characters of each name. If two or more students both have names ending in the same last three characters (i.e.: Bobby, Robby, etc.), secondary sort them by ascending ID.
+
+A)SELECT NAME FROM STUDENTS WHERE MARKS>75 ORDER BY SUBSTR(NAME,-3,3),ID;
+
+EXPLANATION:
+
+IN THE ABOVE QUERY SUBSTR("PREETHI",-3,3) GIVES "THI" THAT IS -3 MEANS INDEX IS AT LETTER "T" AND 3 IS NOTHING BUT LETTER "T" TO 3 CHARACTERS

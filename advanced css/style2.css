@@ -1,0 +1,10 @@
+/* strat should be slow end should be fast */
+#fetch{
+    width: 100px;
+    background-color: red;
+    transition: background-color 4s ease,width 2s ease ;
+}
+#fetch:hover{
+    background-color: pink;
+    width:200px;
+}

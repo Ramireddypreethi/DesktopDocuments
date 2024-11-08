@@ -1,0 +1,12 @@
+#fetch{
+    width:100px;
+    height:100px;
+    transition: background-color 4s ease;
+    background-color: blue;
+}
+#fetch:hover{
+    width: 200px;
+    transition: 8s;
+    background-color: red;
+    
+}

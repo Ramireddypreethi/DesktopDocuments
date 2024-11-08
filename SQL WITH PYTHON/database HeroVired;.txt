@@ -1,0 +1,528 @@
+create database HeroVired;
+create table RGM(
+  Name varchar(30) not null,
+  college varchar(20) not null,
+  session varchar(30) not null,
+  contact_no int not null,
+  address varchar(70) primary key not null
+  );
+select * from RGM;  
+INSERT INTO RGM VALUES ("pandu","IIT","PYTHON",24149394,"DEWRtWR"),("NIKHILa","IIT","SQL",241493924,"Dwaraka");
+
+
+
+create database HeroVired;
+create table RGM(
+  Name varchar(30) not null,
+  college varchar(20) not null,
+  session varchar(30) not null,
+  contact_no int not null,
+  address varchar(70) primary key not null
+  );
+select * from RGM;  
+INSERT INTO RGM VALUES ("pandu","IIT","PYTHON",24149394,"DEWRtWR"),("NIKHILa","IIT","SQL",241493924,"Dwaraka");
+
+
+-- find all the rows where our session is python
+SELECT * FROM RGM WHERE session = "PYTHON";
+SELECT Name,college,address FROM RGM WHERE session="PYTHON";
+SELECT * FROM RGM;
+SELECT * FROM RGM WHERE session="SQL" AND address="DKMKKDMK";
+SELECT * FROM RGM WHERE ADDRESS="DWARAKA";
+SELECT * FROM RGM WHERE Name LIKE "N%";-- AFTER N WHATEVER NAME THERE IT WILL FETCH
+SELECT * FROM RGM WHERE NAME LIKE "N%A";
+SELECT * FROM RGM WHERE NAME LIKE "PR%";
+SELECT * FROM RGM WHERE NAME LIKE "%A";
+SELECT * FROM RGM WHERE NAME LIKE "%%R%";
+SELECT * FROM RGM WHERE NAME LIKE "_I%";
+SELECT * FROM RGM WHERE NAME LIKE "__K%";
+SELECT * FROM RGM WHERE NAME LIKE "%T__";
+SELECT * FROM RGM WHERE NAME NOT LIKE "P%";
+SELECT * FROM RGM WHERE NAME NOT LIKE "N%";
+SELECT * FROM RGM WHERE NAME NOT LIKE "%A";
+SELECT * FROM RGM WHERE NAME NOT LIKE "_R%";
+SELECT * FROM RGM WHERE NAME NOT LIKE "%L_";
+SELECT * FROM RGM WHERE ADDRESS IN ('DEWRWR','DEWRTWR');
+-- TO FETCH FROM MULTIPLE COLUMNS WE USE 'IN' 
+-- TO FETCH FROM SINGLE COLUMN WE USE '='
+SELECT * FROM RGM WHERE COLLEGE = 'IIT' OR COLLEGE="RGM";
+SELECT * FROM RGM WHERE COLLEGE IN ('IIT','RGM');
+
+
+
+create table student1(
+id int primary key not null,
+name varchar(30) not null,
+marks int not null
+);
+INSERT INTO STUDENT1 VALUES(101,"PREETHI",40),(102,"PRANI",80),(103,"VARUN",78),(104,"LOKESWARI",97),(105,"RADHIKA",100),(106,"SAI",87),(107,"KASTURI",80),(108,"SAI",40);
+SELECT * FROM STUDENT1 WHERE MARKS=100;
+SELECT * FROM STUDENT1 WHERE MARKS<80;
+SELECT * FROM STUDENT1 WHERE MARKS>70;
+SELECT * FROM STUDENT1 WHERE MARKS>=80;
+SELECT * FROM STUDENT1 WHERE ID>105;
+SELECT * FROM STUDENT1 WHERE MARKS!=91;
+SELECT * FROM STUDENT1 WHERE MARKS<>91; -- BOTH != AND <> BOTH ARE SAME
+SELECT * FROM STUDENT1 WHERE MARKS BETWEEN 83 AND 99;
+-- IN ABOVE QUERY MARKS ARE SHOWN BASED ON ASCENDING ORDER OF ID
+-- TO SEE MARKS IN ASCENDING ORDER
+SELECT * FROM STUDENT1 WHERE MARKS BETWEEN 83 AND 99 ORDER BY MARKS; -- HERE BY DEFAULT ORDER IS IN ASCENDING ORDER
+SELECT * FROM STUDENT1 WHERE MARKS BETWEEN 83 AND 99 ORDER BY MARKS ASC; -- TO DISPLAY MARKS IN ASCENDING ORDER
+SELECT * FROM STUDENT1 WHERE MARKS BETWEEN 83 AND 99 ORDER BY MARKS DESC;
+SELECT * FROM STUDENT1 WHERE NOT MARKS = 100; 
+SELECT * FROM STUDENT1 WHERE MARKS != 100; 
+-- ABOVE 2 QUERIES GIVES SAME OUTPUT
+SELECT * FROM RGM;
+-- TO FIND UNIQUE ADDRESS OR ANYTHING WE USE DISTINCT KEYWORD
+SELECT DISTINCT ADDRESS FROM RGM;
+SELECT COUNT(DISTINCT ADDRESS) FROM RGM;
+SELECT COUNT(DISTINCT MARKS) FROM STUDENT1;
+SELECT * FROM STUDENT1 WHERE NOT MARKS=80 AND NOT MARKS=100; 
+SELECT * FROM RGM LIMIT 3;
+SELECT * FROM RGM WHERE COLLEGE ="IIT" LIMIT 2;
+SELECT COUNT(ADDRESS) FROM RGM GROUP BY ADDRESS;
+SELECT COUNT(COLLEGE),COLLEGE FROM RGM GROUP BY COLLEGE;
+SELECT * FROM RGM WHERE COLLEGE ="IIT" ORDER BY SESSION LIMIT 5;
+SELECT * FROM RGM WHERE COLLEGE ="IIT" ORDER BY SESSION DESC LIMIT 5;
+CREATE TABLE DOB(
+DATE DATE NOT NULL
+);
+INSERT INTO DOB VALUES("2023-04-28");
+SELECT * FROM DOB;
+
+-- TODAY'S ASSESSMENT
+-- 1)
+CREATE TABLE SALESMAN(
+ID INT PRIMARY KEY NOT NULL,
+NAME VARCHAR(30) NOT NULL,
+CITY VARCHAR(30) NOT NULL,
+COMMISSION REAL NOT NULL
+);
+
+INSERT INTO SALESMAN VALUES(5001,"JAMES HOOG","NEW YORK",0.15),(5002,"VARUN ","LONDON",0.15),(5003,"HOOG","PARIS",0.14),(5004,"JAMES","NEW JERSEY",0.13),(5005,"PRANITHA","ROME",0.12),(5006,"RADHIKA","ITALY",0.15);
+
+SELECT NAME,COMMISSION FROM SALESMAN; 
+
+
+
+-- Creating database,here "rgm" is databasename.
+-- create database rgm;
+-- to comment any line, select that line and click on ctrl+/ 
+ -- create table student(
+--  studentID int primary key not null,
+--  student_name varchar(30) not null,
+--  student_contact int not null,
+--  student_dept varchar(25) not null
+--  );
+  
+  -- INSERT INTO student(studentID,student_name,student_contact,student_dept) 
+--   VALUES (501,"PREETHI",2014140102,"CSE");
+   
+   INSERT INTO student
+  VALUES (502,"PREETHI",2014140102,"CSE");
+  SELECT * FROM student;
+  INSERT INTO student
+  VALUES (503,"varun",2014140103,"CSE");
+  INSERT INTO student
+  VALUES (504,"madhav",2014140104,"ecE");
+  INSERT INTO student
+  VALUES (505,"sreedevi",2014140105,"CSE");
+  INSERT INTO student VALUES (108,"pandu",29329392,"ECE"),(109,"mintu",9333334,"CSE");
+
+
+
+
+
+CREATE DATABASE CUSTOMER;
+SELECT * FROM CUSTOMER;
+CREATE TABLE CUSTOMER(
+ C_ID INT PRIMARY KEY,NAME VARCHAR(40),CITY VARCHAR(20),GRADE INT,ID INT);
+ 
+ INSERT INTO CUSTOMER VALUES(101,"PREETHI","DELHI",98,5001),(102,"VARUN","BENGALURE",94,5002),(103,"NIKHIL","ASSOM",99,5003),(104,"ARJUN","LOHORE",88,5004),(105,"PRAKRUTHI","NELLORE",38,5005),(106,"RISHI","KOLKATA",55,5006),(107,"CHAITANYA","DELHI",23,5007);
+ 
+ -- 1)WRITE SQL QUERY TO FIND OUT DETAILS OF CUSTOMERS WHOSE GRADE HAVE OF 100
+ SELECT * FROM CUSTOMER WHERE GRADE>100;
+ 
+ -- 2)WRITE SQL QUERY TO FIND OUT DETAILS OF CUSTOMERS WHOSE GRADE HAVE OF GREATER THAN 100
+ SELECT * FROM CUSTOMER WHERE GRADE>=45;
+ 
+ -- 3)WRITE SQL QUERY TO FIND OUT DETAILS OF CUSTOMERS WHOSE GRADE HAVE OF GREATER THAN 100 IN ASCENDING ORDER
+  SELECT * FROM CUSTOMER WHERE GRADE>=45 ORDER BY GRADE ASC;
+  
+-- 4)WRITE SQL QUERY TO FIND OUT DETAILS OF CUSTOMERS WHO ARE LIVING IN ASSOM AND GRADE LESS THAN OR EQUAL TO 50
+SELECT * FROM CUSTOMER WHERE CITY="ASSOM" AND GRADE>=50;
+
+-- 5)WRITE SQL QUERY TO FIND OUT DETAILS OF CUSTOMERS WHO ARE FROM  ASSOM OR HAVE A GRADDE ABOVE THAN
+  SELECT * FROM CUSTOMER WHERE CITY="ASSOM" OR GRADE >90;
+  SELECT * FROM CUSTOMER;
+  
+-- 6)WRITE SQL QUERY TO FIND OUT DETAILS OF CUSTOMERS WHO ARE EITHER FROM THE KERALA CITY OR WHO DONOT HAVE GRADE MORE THAN 100
+  SELECT * FROM CUSTOMER WHERE CITY="KERELA" OR NOT GRADE >90;
+  
+-- 7)WHO DONOT BELONG TO CITY MUMBAI OR HAVE GRADE THAT EXCEEDS 88
+SELECT * FROM CUSTOMER WHERE CITY !="MUMBAI" OR GRADE >88;-- IT WONT GIVE CORRECT DATA BECAUSE BOTH CONDITIONS SHOULD MATCH
+SELECT * FROM CUSTOMER WHERE CITY !="MUMBAI" AND GRADE >88;-- HERE SATISFIES THE CONDITIONS.
+
+-- FIND THE ORDER DETAILS EXCLUDING THE DATE 30-04-2023 AND ID MORETHAN 5002 OR PURCHASE AMOUNT >1000
+CREATE TABLE ORDERS(
+ORDERNO INT,
+PURCHASE_AMOUNT INT,
+ORDER_DATE DATE,
+CID INT,
+ID INT
+);
+  
+INSERT INTO ORDERS VALUES(1,1200,'2023-04-23',101,5001),
+(2,1250,'2023-04-26',102,5002),
+(3,1500,'2023-04-28',103,5003),
+(4,2000,'2023-04-20',104,5004),
+(5,2300,'2023-04-30',105,5005),
+(6,1200,'2023-04-30',106,5006),
+(7,3900,'2023-04-27',107,5007);
+
+SELECT * FROM ORDERS WHERE NOT ORDER_DATE="2023-04-30" AND ID>5002 OR PURCHASE_AMOUNT>1000;
+
+CREATE TABLE  SALESMAN(
+SALEMAN_ID INT PRIMARY KEY,NAME VARCHAR(20),CITY VARCHAR(20),COMMISION FLOAT);
+
+INSERT INTO SALESMAN VALUES(200,"PREETHI","KURNOOL",0.45),(201,"PREET","KURNOOL",0.55),(202,"RIITU","KUR",0.23),(204,"PANDU","KANDYAL",0.55);
+
+-- 1)TO FIND SALESMAN COMMISION WITHIN RANGE FROM 0.23 TO 0.43
+SELECT * FROM SALESMAN WHERE COMMISION BETWEEN 0.23 AND 0.43;
+
+-- 2)FIND OUT SALESMAN DETAILS WHOSE NAME STARTS WITH LETTER P
+SELECT * FROM SALESMAN WHERE NAME LIKE "P%";
+-- 3) CREATE A NEW COLUMN ADDRESS,INSERT SOME DATA IN THAT ADDRESS COLUMN AND DISPLAY ALL THOSE ADDRESS AS "SALESMAN ADDRESS" IN DESCENDING ORDER
+ALTER TABLE SALESMAN ADD COLUMN ADDRESS VARCHAR(20);
+SELECT * FROM SALESMAN;
+UPDATE SALESMAN SET ADDRESS="H1" WHERE NAME="PREETHI";
+UPDATE SALESMAN SET ADDRESS="H2" WHERE NAME="PREET";
+UPDATE SALESMAN SET ADDRESS="H3" WHERE NAME="PANDU";
+UPDATE SALESMAN SET ADDRESS="H1" WHERE NAME="RIITU";
+SELECT address FROM SALESMAN ORDER BY ADDRESS ASC;
+SELECT ADDRESS AS SALESMAN_ADDRESS FROM SALESMAN ORDER BY ADDRESS DESC;-- CHANGING NAME IN THE OUTPUT ITSELF INSTEAD OF USING 'ALTER'
+
+
+
+show databases; -- get all the databases present in the schemas
+select * from  rgm;
+
+-- changing name with contact no. 241442
+update rgm set Name="varun" where contact_no=241442; -- it gives safe update error
+
+-- we have to make some changes in sql work bench 
+-- goto edit
+      -- goto preferences
+         -- goto sql editor
+             -- uncheck the safe update and click on ok
+-- later refresh sql workbench i.e close the tab and open again.
+
+update rgm set Name="varun" where contact_no=241442;-- know table is uddated
+
+select * from rgm;
+
+update rgm set session="java" and college="srm" where contact_no=24149394; -- for and it gives error
+
+update rgm set session="java",college="srm" where contact_no=24149394;-- updating multipule values
+-- COPYING DATA FROM ONE TO ANOTHER IN SAME DATABASE
+
+select * from student;
+
+create table test(
+studentID int primary key not null,
+student_name varchar(30) not null,
+student_contact int not null,
+student_dept varchar(30) not null
+);
+select * from test;-- now table is empty
+
+insert into test select * from student;-- exactly all the data is copied from student table to test table.
+                                       -- In this while copying no of fields should be same in both tables
+                                       -- Both tables should be in same database
+select * from test;
+-- -----------------------------------------------
+SELECT * FROM TEST;
+ 
+ TRUNCATE TABLE TEST;-- DELETE ENTIRE DATA NO TABLE STRUCTURE.
+ 
+ -- ------------------------------------
+ SELECT * FROM STUDENT;
+  
+DELETE FROM STUDENT WHERE STUDENT_NAME="PANDU";-- DELETING PARTICULAR ROW INSTEAD OF ENTIRE COLUMN
+ 
+ -- ----------------------------------------
+ DROP TABLE TEST;-- DELETING ENTIRE TABLE STRUCTURE.
+ 
+ SELECT * FROM TEST;-- WE WILL GET TABLE 'RGM.TEST' DOESNOT EXIT
+ 
+ -- ---------------------------------------
+ SELECT * FROM STUDENT;
+ 
+ ALTER TABLE STUDENT RENAME COLUMN STUDENT_NAME TO NAME;-- RENAMING OLD COLUMNNAME TO NEW COLUMN NAME
+ 
+ -- ------------------------------------------
+ ALTER TABLE STUDENT RENAME TO RGM_STUDENT;-- CHANGING NAME OF STUDENT TABLE TO RGM_STUDENT TABLE.
+ 
+ -- -----------------------------------------------
+ 
+ -- TO CHANGE ANY COLUMN DATATYPE WE USE ALTER
+ -- TO CHANGE ANY COLUMN DATA WE USE MODIFY
+ CREATE DATABASE PREETHI;
+ SHOW DATABASES;
+DROP DATABASE PREETHI;-- TO DROP THE DATABASE 
+
+-- ------------------------------------------
+
+ALTER TABLE RGM_STUDENT ADD ADDRESS VARCHAR(30);-- CREATING NEW COLUMN
+ SELECT * FROM RGM_STUDENT;
+ 
+ UPDATE RGM_STUDENT SET ADDRESS="NELLORE" WHERE studentID=502;-- ADD DATA TO NEW COLUMN
+ 
+ ALTER TABLE RGM_STUDENT MODIFY COLUMN ADDRESS VARCHAR(50);-- TO CHECK MODIFIED DATATYPE GOTO NEAR TABLES ON RIGHT HAND SIDE AND CLICK ON RGM_STUDENT TABLE ON LEFT OF IT CLICK ON "I" BUTTON WE GET "INFO" ,THEN CLICK ON THE COLUMNS WE CAN SEE CHANGED DATATYPE.
+ 
+ ALTER TABLE RGM_STUDENT DROP COLUMN ADDRESS;-- DELETING PARTICULAR COLUMN.
+ 
+ SELECT * FROM RGM_STUDENT;
+ 
+ ALTER TABLE RGM_STUDENT DROP COLUMN NAME, DROP COLUMN studentID;-- TO DELTE MULTIPLE COLUMNS
+ -- -------------------------------------
+ DELETE FROM RGM_STUDENT;-- DELETE ENTIRE STRUCTURE
+ -- ----------------------------
+ SELECT MIN(MARKS) FROM STUDENT1;
+
+ SELECT MIN(MARKS) FROM STUDENT1;
+SELECT AVG(MARKS) FROM STUDENT1;
+ SELECT SUM(MARKS) FROM STUDENT1;
+ SELECT SUM(MARKS) AS TOTAL FROM STUDENT1;-- CHANGING COL NAME IN OUTPUT.
+ SELECT COUNT(MARKS) FROM STUDENT1;
+ -- ---------------------------
+ CREATE DATABASE EXCERCISE;
+ CREATE TABLE CUSTOMER(
+ C_ID INT PRIMARY KEY,NAME VARCHAR(40),CITY VARCHAR(20),GRADE INT,ID INT);
+ 
+ INSERT INTO CUSTOMER VALUES(101,"PREETHI","DELHI",98,5001),(102,"VARUN","BENGALURE",94,5002),(103,"NIKHIL","ASSOM",99,5003),(104,"ARJUN","LOHORE",88,5004),(105,"PRAKRUTHI","NELLORE",38,5005),(106,"RISHI","KOLKATA",55,5006),(107,"CHAITANYA","DELHI",23,5007);
+ 
+ SELECT * FROM CUSTOMER;
+
+
+
+
+CREATE TABLE CAR(
+CAR_NO INT ,CAR_NAME VARCHAR(40),CAR_PRICE INT,CAR_QUANTITY INT);
+
+INSERT INTO CAR VALUES(122,"TESLA",20000,21),(132,"BMW",22000,2),(145,"SHIFT",40000,5),(120,"SAFARI",32000,4);
+
+INSERT INTO CAR VALUES(126,"TES",20000,28);
+
+INSERT INTO CAR VALUES(119,"KIA",22000,9);
+
+SELECT *FROM CAR;
+
+SELECT COUNT(CAR_NAME) AS CARS,CAR_PRICE FROM CAR GROUP BY CAR_PRICE;-- TO SEE HOW MANY HAVE SAME CAR PRICE WE COUNT
+-- --------------------------------------------------------------------------------------------
+-- EXAMPLES ON HAVING CLAUSE
+
+SELECT COUNT(CAR_NAME) FROM CAR GROUP BY CAR_PRICE HAVING CAR_PRICE>12000; -- IF WE WANT TO GET OUTPUT BASED ON CAR_PRICE WE USE "GROUP BY" AND BASED ON CONDITION WE USE "HAVING"
+SELECT COUNT(CAR_NAME) FROM CAR GROUP BY CAR_PRICE>12000;
+SELECT COUNT(*) FROM CAR GROUP BY CAR_PRICE HAVING CAR_PRICE>20000;
+
+-- --------------------------------------------------------------------
+CREATE TABLE VISIT(
+ENTRY_DATE DATE,
+PRICE INT,
+DURATION int
+);
+
+INSERT INTO VISIT VALUES('2023-05-1',1000,12),('2023-05-1',1200,12),('2023-05-26',1400,13),('2023-05-4',1500,19),('2023-05-3',1000,12),('2023-05-1',1009,14);
+INSERT INTO VISIT VALUES('2023-07-1',1000,12),('2023-06-1',1200,12),('2023-09-26',1400,13),('2023-02-4',1500,19);
+INSERT INTO VISIT VALUES('2022-07-1',1000,12);
+SELECT * FROM VISIT;
+
+SELECT ENTRY_DATE,COUNT(*) FROM VISIT GROUP BY ENTRY_DATE;
+
+-- EXTRACT FUNCTION: WE CAN EXTRACT THE YEAR OR MONTH FROM DATE
+-- ROUND FUNCTION IS USED TO ROUND FIGURE THE NUMBER.iN THIS ROUND(AVG(PRICE,2)) HERE 2 REPRESENTS UPTO 2 DECIMAL POINTS
+SELECT EXTRACT(YEAR FROM ENTRY_DATE)  AS YEAR,
+EXTRACT(MONTH FROM ENTRY_DATE) AS MONTH,
+ROUND(AVG(PRICE),2) FROM VISIT GROUP BY EXTRACT(YEAR FROM ENTRY_DATE),EXTRACT(MONTH FROM ENTRY_DATE);-- PRICE WILL ROUND UP TO 2 DECIMAL
+
+SELECT EXTRACT(YEAR FROM ENTRY_DATE)  AS YEAR,
+EXTRACT(MONTH FROM ENTRY_DATE) AS MONTH,
+ROUND(AVG(PRICE),4) FROM VISIT GROUP BY EXTRACT(YEAR FROM ENTRY_DATE),EXTRACT(MONTH FROM ENTRY_DATE);-- PRICE WILL ROUND UP TO 2 DECIMAL
+
+SELECT EXTRACT(YEAR FROM ENTRY_DATE) AS YEAR,
+EXTRACT(MONTH FROM ENTRY_DATE) AS MONTH,EXTRACT(DAY FROM ENTRY_DATE) AS DAY,
+ROUND(AVG(PRICE),2) FROM VISIT 
+GROUP BY EXTRACT(YEAR FROM ENTRY_DATE),EXTRACT(MONTH FROM ENTRY_DATE),EXTRACT(DAY FROM ENTRY_DATE)
+ORDER BY EXTRACT(YEAR FROM ENTRY_DATE),EXTRACT(MONTH FROM ENTRY_DATE);-- PRICE WILL ROUND UP TO 2 DECIMAL
+
+SELECT ENTRY_DATE,ROUND(AVG(PRICE),5) AS AVG_PRICE FROM VISIT GROUP BY ENTRY_DATE HAVING COUNT(*) >0 ORDER BY ENTRY_DATE;-- ENTRY_DATE SHOULD BE MORE THAN 1 IN ORDER,HERE ORDER IS TAKEN AS "THE DATE WHICH IS ENTERED FIRST"
+
+SELECT ENTRY_DATE,ROUND(AVG(PRICE),5) AS AVG_PRICE,COUNT(ENTRY_DATE) FROM VISIT GROUP BY ENTRY_DATE HAVING COUNT(*)>0;
+SELECT * FROM VISIT;
+SELECT COUNT(ENTRY_DATE),ENTRY_DATE FROM VISIT GROUP BY ENTRY_DATE;
+
+-- IF DURATION IS MORE THAN 20 THEN ONLY DO AVG
+SELECT ENTRY_DATE,ROUND(AVG(PRICE),2) AS AVG_PRICE FROM VISIT WHERE DURATION >10
+GROUP BY ENTRY_DATE HAVING COUNT(*)>1 ORDER BY ENTRY_DATE;
+-- ----------------------------------------------------------------------------------------
+CREATE TABLE EMPLOYEE(
+EMP_ID INT,NAME VARCHAR(25),AGE INT,COUNTRY VARCHAR(30));
+
+INSERT INTO EMPLOYEE VALUES(101,"RAM",23,"INDIA"),(102,"RAMESH",25,"PAKISTAN"),(103,"SITA",21,"SRILANKA"),(104,"RAGHU",23,"INDIA");
+
+SELECT * FROM EMPLOYEE;
+
+SELECT COUNT(COUNTRY) AS COUN_NUM,COUNTRY FROM EMPLOYEE GROUP BY COUNTRY HAVING COUNT(COUNTRY)>=2;
+
+SELECT COUNTRY,COUNT(COUNTRY) FROM EMPLOYEE GROUP BY COUNTRY HAVING MAX(AGE)>=23;
+-- ----------------------------------------------------------------------------------------
+CREATE TABLE MANAGER(
+ID INT ,NAME VARCHAR(20),GENDER VARCHAR(20),SALARY INT);
+
+CREATE TABLE MANAGER1(
+ID INT ,NAME VARCHAR(20),GENDER VARCHAR(20),AGE INT,SALARY INT);
+
+INSERT INTO MANAGER1 VALUES(201,"PREETHI","F",20,12000),(202,"VARUN","M",20,13000),(203,"CHANDHANA","F",30,12500),(204,"RISHI","M",30,12000),(205,"SREEJA","F",30,14000),(206,"HITESH","M",25,13300);
+
+-- FIND OUT SUM OF SALARY GREATER THAN 12000
+SELECT NAME,SUM(SALARY) AS T_SALARY FROM MANAGER1 GROUP BY NAME HAVING SUM(SALARY)>12000 ORDER BY NAME; 
+
+SELECT SUM(SALARY) AS T_SALARY,SALARY FROM MANAGER1 GROUP BY SALARY HAVING SUM(SALARY)>12000 ORDER BY SALARY;-- DOUBT 
+
+SELECT AGE FROM MANAGER1 GROUP BY AGE HAVING COUNT(AGE)>2;
+
+SELECT GENDER,MAX(SALARY) AS MAX_SALARY FROM MANAGER1 GROUP BY GENDER HAVING MAX(SALARY)<15000;
+-- --------------------------------------------------------------------------------
+-- 1)
+DELIMITER //
+CREATE PROCEDURE GetManagerInfo() 
+BEGIN
+select * from MANAGER1;
+END //
+
+CALL GetManagerInfo()
+
+-- 2)
+DELIMITER //
+CREATE PROCEDURE GetManagerAge() 
+BEGIN
+select * from MANAGER1 WHERE AGE=20;
+END //
+CALL GetManagerAge() 
+
+-- 3)
+
+SELECT NAME FROM MANAGER1 ORDER BY RAND() LIMIT 2;-- IT GIVES  RANDOM NAME
+
+
+
+
+-- finding second largest salary from manager table
+select name,salary from manager1 order by salary desc limit 1,1;
+-- finding third largest salary from manager table
+select name,salary from manager1 order by salary desc limit 2,1;-- it will work when there is duplicates
+-- finding the largest salary
+select max(salary) from manager;
+select name,salary from manager1 order by salary limit 2,1;-- if there are duplicate salary it will give give wrong output
+create table orderss(
+order_id int,
+order_date date,
+cus_id int
+);
+
+create table customer1(
+cus_id int,
+cus_name varchar(30),
+contact_name varchar(31),
+country varchar(30)
+);
+
+INSERT INTO customer1 VALUES (101,"PARI","AMMA","INDIA"),(102,"PARIMALA","ATTA","INDIA"),(103,"MADHAV","DADA","BHUTAN"),(104,"VARUN","CHIMP","SOUTH AFRICA");
+
+INSERT INTO orderss VALUES (201,"2022-04-26",101),(202,"2022-04-20",102),(203,"2024-09-2",103),(204,"2028-08-8",104);
+
+-- inner joins
+select orderss.order_id,customer1.cus_name,orderss.order_date from orderss inner join customer1 on orderss.cus_id=customer1.cus_id;
+
+create table staff(
+id int,
+name varchar(20),
+age int,
+package int);
+
+create table payment(
+payint int,
+date_ date,
+sid int,
+amount int);
+
+insert into staff values(201,"pinky",23,100000),(202,"anik",34,120000),(203,"aman",32,130000),(204,"preethi",20,123000);
+
+insert into payment values(101,"2023-03-3",201,12000),(102,"2022-08-9",202,13000),(103,"2021-06-26",205,13000),(104,"2020-09-9",206,15000);
+
+select id,name,age,amount from staff s,payment p where s.id=p.sid;-- using normal joins.
+                                                                  -- if id name are same in both table and if u are trying to print it then we should mention table name like "select s.id......"
+                                                                  -- s,p are alias name
+alter table orderss add ship_id int;
+select * from orderss;
+update orderss set ship_id=1234 where order_id=201;
+update orderss set ship_id=2222 where order_id=202;
+update orderss set ship_id=1111 where order_id=203;
+update orderss set ship_id=3333 where order_id=204;
+
+create table shipping(
+shipping_id int,
+name varchar(20));
+
+insert into shipping values(1234,"dtvc"),(1111,"xys"),(8888,"oko"),(3333,"ret");
+
+select * from shipping;
+
+-- joining of 3 tables orderss,customer1,shipping
+
+select  orderss.order_id,customer1.cus_name,shipping.name from
+((orderss inner join customer1 on orderss.cus_id=customer1.cus_id)
+inner join shipping on orderss.ship_id=shipping.shipping_id);
+
+-- left join with 3 tables
+
+
+select customer1.cus_name,orderss.order_id from customer1
+left join orderss on customer1.cus_id=orderss.cus_id;-- we will get all the rows commom with customer id
+		
+select * from orderss;
+select * from customer1;-- we can select all these things at a time
+select * from shipping;
+
+select cus_name,country,order_date from customer1 right join orderss on customer1.cus_id=orderss.cus_id;-- display all the data from right table and common data from both table
+
+select cus_name,country,order_id from customer1 
+left join orderss on customer1.cus_id=orderss.cus_id order by customer1.cus_name;
+
+select cus_name,country,order_id from customer1 
+left join orderss on customer1.cus_id=orderss.cus_id where customer1.cus_name like "p%" order by customer1.cus_name;
+
+-- FULL JOIN
+select customer1.cus_name,orderss.order_id from customer1 left join orderss on customer1.cus_id = orderss.cus_id;
+
+select customer1.cus_name,orderss.order_id from customer1 right join orderss on customer1.cus_id = orderss.cus_id;
+
+select customer1.cus_name,orderss.order_id from customer1 full join orderss on customer1.cus_id = orderss.cus_id;-- full join not working.
+
+select customer1.cus_name,orderss.order_id from customer1 left join orderss on customer1.cus_id = orderss.cus_id
+union
+select customer1.cus_name,orderss.order_id from customer1 right join orderss on customer1.cus_id = orderss.cus_id;
+
+select cus_name,orderss.order_id from customer1 full join orderss on cus_id = orderss.cus_id;-- full join not working. DOUBT
+
+CREATE TABLE TEST(
+ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT, 
+C2 VARCHAR(40) NOT NULL,
+C3 VARCHAR(40) DEFAULT 'SOFTWARE ENGINEER');
+-- AUTOMATICALLY ID IS INCREMENTED BY 1
+-- 2 PRIMARY KEYS CAN'T BE
+ALTER TABLE TEST AUTO_INCREMENT=100;
+
+
+

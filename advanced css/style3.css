@@ -1,0 +1,13 @@
+.data{
+    width: 200px;
+    height: 100px;
+    background-color: green;
+    transition-delay:3s ;
+   transition-duration:3s;
+    transition-property: background-color;
+    transition-timing-function: ease;
+}
+.data:hover{
+    
+    background-color: red;
+}
